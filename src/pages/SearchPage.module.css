@@ -1,0 +1,388 @@
+/* ─── Layout ──────────────────────────────────────────────────────────────── */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── Title ──────────────────────────────────────────────────────────────── */
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
+}
+
+/* ─── Search Input ───────────────────────────────────────────────────────── */
+
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 40px 12px 42px;
+  border-radius: var(--radius-xl);
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  box-sizing: border-box;
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+.searchInput:focus {
+  border-color: var(--accent);
+  background: var(--bg-elevated);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.searchInput:focus + .searchIcon,
+.searchWrap:focus-within .searchIcon {
+  color: var(--accent);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-hover);
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.clearBtn:hover {
+  background: var(--border-active);
+  color: var(--text-primary);
+}
+
+/* ─── Mood Filter ────────────────────────────────────────────────────────── */
+
+.moodFilterRow {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.moodChip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.moodChip:hover { border-color: var(--border-active); color: var(--text-secondary); }
+.moodChipActive { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+/* ─── Tag Row ────────────────────────────────────────────────────────────── */
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tagChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 99px;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.tagChip svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.tagChip:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.tagChip:hover svg {
+  color: var(--accent);
+}
+
+.tagChipActive {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.tagChipActive svg {
+  color: var(--accent);
+}
+
+/* ─── Matched Words Row ──────────────────────────────────────────────────── */
+
+.wordsRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.wordsIcon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.wordsLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.wordChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.wordChip:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.wordChipActive {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ─── Highlight ──────────────────────────────────────────────────────────── */
+
+.highlight {
+  background: #fef08a;
+  color: #854d0e;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* Dark / purple-toned themes: override highlight to use accent color */
+:global([data-theme='dark']) .highlight,
+:global([data-theme='green']) .highlight {
+  background: rgba(124, 110, 224, 0.3);
+  color: var(--accent);
+}
+
+/* ─── Result Title Row ───────────────────────────────────────────────────── */
+
+.resultTitleRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.matchBadge {
+  flex-shrink: 0;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+/* ─── Empty / No-result State ────────────────────────────────────────────── */
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 48px 24px;
+  text-align: center;
+  flex: 1;
+}
+
+.emptyIcon {
+  color: var(--text-muted);
+  opacity: 0.45;
+}
+
+.emptyText {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.emptySub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ─── Results ────────────────────────────────────────────────────────────── */
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.resultsCount {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+  padding: 0 2px;
+}
+
+.resultCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 14px 14px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 6px;
+  transition: background var(--transition), border-color var(--transition);
+  gap: 12px;
+}
+
+.resultCard:last-child {
+  margin-bottom: 0;
+}
+
+.resultCard:hover {
+  border-color: var(--border-active);
+}
+
+.resultBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.resultTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultPreview {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.resultMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.resultTime {
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.resultTag {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 99px;
+  padding: 1px 7px;
+}
+
+.resultArrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.resultCard:hover .resultArrow {
+  color: var(--accent);
+  transform: translateX(2px);
+}

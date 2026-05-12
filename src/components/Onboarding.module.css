@@ -1,0 +1,205 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+/* Welcome step */
+.logo {
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.welcomeTitle {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.welcomeSub {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* Progress dots */
+.progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.dotActive {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+.dotDone {
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+/* Step text */
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stepSub {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 300px;
+  margin-top: -6px;
+}
+
+/* Input */
+.input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color var(--transition);
+}
+.input:focus { border-color: var(--accent); outline: none; }
+.input::placeholder { color: var(--text-muted); }
+
+.textarea {
+  resize: none;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.btnRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: var(--radius-md);
+  transition: opacity var(--transition);
+}
+.primaryBtn:hover { opacity: 0.85; }
+
+.skipBtn {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  transition: color var(--transition), background var(--transition);
+}
+.skipBtn:hover { background: var(--bg-hover); color: var(--text-secondary); }
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 9px 10px;
+  border-radius: var(--radius-md);
+  transition: color var(--transition), background var(--transition);
+  margin-right: auto;
+}
+.backBtn:hover { background: var(--bg-hover); color: var(--text-secondary); }
+
+/* Source cards */
+.sourceCards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.sourceCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+  text-align: left;
+  width: 100%;
+}
+.sourceCard:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.sourceCardAuto {
+  border-color: var(--border-active);
+  background: var(--accent-soft);
+}
+
+.sourceCardText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sourceCardTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sourceCardSub {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.sourceCardSub code {
+  font-family: var(--font-mono);
+  font-size: 10px;
+}

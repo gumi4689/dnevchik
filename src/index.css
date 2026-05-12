@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Roboto:wght@300;400;500&display=swap');
+
+/* ── Тема: Obsidian (базовая) ── */
+:root {
+  --bg-primary:     #1a1a1a;
+  --bg-secondary:   #202020;
+  --bg-card:        #262626;
+  --bg-elevated:    #2d2d2d;
+  --bg-hover:       #303030;
+  --border:         rgba(255, 255, 255, 0.07);
+  --border-active:  rgba(124, 110, 224, 0.45);
+
+  --accent:         #7c6ee0;
+  --accent-soft:    rgba(124, 110, 224, 0.1);
+  --accent-glow:    rgba(124, 110, 224, 0.2);
+
+  --text-primary:   #dcddde;
+  --text-secondary: #888888;
+  --text-muted:     #505050;
+
+  --success:        #4ade80;
+  --warning:        #f59e0b;
+  --error:          #ef4444;
+
+  --radius-sm:      5px;
+  --radius-md:      8px;
+  --radius-lg:      12px;
+  --radius-xl:      18px;
+
+  --nav-height:     56px;
+  --sidebar-width:  52px;
+  --safe-bottom:    env(safe-area-inset-bottom, 0px);
+
+  --font-body:      'Inter', system-ui, sans-serif;
+  --font-heading:   'Golos Text', 'Inter', sans-serif;
+  --font-mono:      'Fira Code', 'Cascadia Code', monospace;
+  --font-size-base: 14px;
+
+  --transition:     200ms ease;
+}
+
+/* ── Тема: светлая ── */
+[data-theme="light"] {
+  --bg-primary:     #f5f5f0;
+  --bg-secondary:   #ebebea;
+  --bg-card:        #ffffff;
+  --bg-elevated:    #f0f0ec;
+  --bg-hover:       #e8e8e4;
+  --border:         rgba(0, 0, 0, 0.08);
+  --border-active:  rgba(124, 110, 224, 0.5);
+  --accent:         #6d5de0;
+  --accent-soft:    rgba(109, 93, 224, 0.08);
+  --text-primary:   #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted:     #999999;
+}
+
+/* ── Тема: чёрно-белая ── */
+[data-theme="bw"] {
+  --bg-primary:     #0a0a0a;
+  --bg-secondary:   #111111;
+  --bg-card:        #161616;
+  --bg-elevated:    #1c1c1c;
+  --bg-hover:       #222222;
+  --border:         rgba(255,255,255,0.06);
+  --border-active:  rgba(255,255,255,0.3);
+  --accent:         #e0e0e0;
+  --accent-soft:    rgba(224,224,224,0.06);
+  --accent-glow:    rgba(224,224,224,0.1);
+  --text-primary:   #e8e8e8;
+  --text-secondary: #777777;
+  --text-muted:     #404040;
+}
+
+/* ── Тема: тёплая (сепия) ── */
+[data-theme="warm"] {
+  --bg-primary:     #1c1814;
+  --bg-secondary:   #221e18;
+  --bg-card:        #28241e;
+  --bg-elevated:    #302b24;
+  --bg-hover:       #36302a;
+  --border:         rgba(210, 180, 140, 0.1);
+  --border-active:  rgba(210, 160, 100, 0.4);
+  --accent:         #c89b6e;
+  --accent-soft:    rgba(200, 155, 110, 0.1);
+  --accent-glow:    rgba(200, 155, 110, 0.15);
+  --text-primary:   #e8ddd0;
+  --text-secondary: #9a8878;
+  --text-muted:     #5a4e42;
+}
+
+/* ── Тема: зелёная (терминал) ── */
+[data-theme="green"] {
+  --bg-primary:     #0d1410;
+  --bg-secondary:   #111a14;
+  --bg-card:        #152019;
+  --bg-elevated:    #1a271e;
+  --bg-hover:       #1e2e23;
+  --border:         rgba(74, 222, 128, 0.08);
+  --border-active:  rgba(74, 222, 128, 0.35);
+  --accent:         #4ade80;
+  --accent-soft:    rgba(74, 222, 128, 0.08);
+  --accent-glow:    rgba(74, 222, 128, 0.15);
+  --text-primary:   #d4f4df;
+  --text-secondary: #6aaa80;
+  --text-muted:     #3a5e47;
+}
+
+/* ── Сброс ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Размеры шрифта */
+[data-font-size="sm"] { --font-size-base: 12px; }
+[data-font-size="md"] { --font-size-base: 14px; }
+[data-font-size="lg"] { --font-size-base: 16px; }
+
+/* Семейство шрифта редактора */
+[data-editor-font="mono"] {
+  --font-editor: var(--font-mono);
+}
+[data-editor-font="serif"] {
+  --font-editor: 'Georgia', serif;
+}
+[data-editor-font="sans"] {
+  --font-editor: var(--font-body);
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; outline: none; }
+input, textarea { font-family: inherit; outline: none; border: none; }
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

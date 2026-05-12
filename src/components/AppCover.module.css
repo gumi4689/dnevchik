@@ -1,0 +1,65 @@
+.cover {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bookIcon {
+  display: flex;
+  width: 56px;
+  height: 64px;
+  gap: 2px;
+}
+
+.bookLeft {
+  width: 10px;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px 0 0 3px;
+  opacity: 0.7;
+}
+
+.bookRight {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 8px;
+}
+
+.bookLine {
+  height: 2px;
+  background: var(--border-active);
+  border-radius: 1px;
+}
+.bookLine:nth-child(3) { width: 60%; }
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.date {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  letter-spacing: 0.03em;
+}

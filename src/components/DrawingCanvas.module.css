@@ -1,0 +1,247 @@
+/* ── Overlay ─────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Toolbar ─────────────────────────────────────── */
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  min-height: 48px;
+}
+
+.toolGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  flex-shrink: 0;
+  margin: 0 2px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* ── Tool buttons ────────────────────────────────── */
+
+.toolBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  outline: none;
+  flex-shrink: 0;
+}
+
+.toolBtn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.toolBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.toolBtnActive {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.toolBtnActive:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ── Color buttons ───────────────────────────────── */
+
+.colorBtn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  outline: none;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.colorBtn:hover {
+  transform: scale(1.15);
+}
+
+.colorBtnActive {
+  border-color: #ffffff;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+/* ── Brush size buttons ──────────────────────────── */
+
+.sizeBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition);
+  outline: none;
+  flex-shrink: 0;
+}
+
+.sizeBtn:hover {
+  background: var(--bg-hover);
+}
+
+.sizeBtnActive {
+  background: var(--accent-soft);
+}
+
+.sizeDot {
+  display: block;
+  border-radius: 50%;
+  background: var(--text-primary);
+  flex-shrink: 0;
+  min-width: 4px;
+  min-height: 4px;
+  transition: background var(--transition);
+}
+
+.sizeBtnActive .sizeDot {
+  background: var(--accent);
+}
+
+/* ── Done / Cancel buttons ───────────────────────── */
+
+.btnDone {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: filter var(--transition), opacity var(--transition);
+  outline: none;
+  white-space: nowrap;
+}
+
+.btnDone:hover {
+  filter: brightness(1.12);
+}
+
+.btnDone:active {
+  opacity: 0.88;
+}
+
+.btnCancel {
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background var(--transition), color var(--transition);
+  outline: none;
+  white-space: nowrap;
+}
+
+.btnCancel:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* ── Canvas wrapper ──────────────────────────────── */
+
+.canvasWrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Checkerboard pattern to indicate transparent areas */
+  background-color: #888888;
+  background-image:
+    linear-gradient(45deg, #aaaaaa 25%, transparent 25%),
+    linear-gradient(-45deg, #aaaaaa 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #aaaaaa 75%),
+    linear-gradient(-45deg, transparent 75%, #aaaaaa 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* ── Canvas element ──────────────────────────────── */
+
+.canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  background: #ffffff;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Text input ──────────────────────────────────── */
+
+.textInput {
+  position: absolute;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--accent);
+  outline: none;
+  padding: 0 2px;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  pointer-events: auto;
+  min-width: 80px;
+  max-width: 60vw;
+  /* color is set inline */
+}
+
+.textInput::placeholder {
+  color: rgba(128, 128, 128, 0.5);
+}

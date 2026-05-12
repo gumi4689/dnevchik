@@ -1,0 +1,449 @@
+.page { height: 100%; overflow-y: auto; }
+
+.content {
+  padding: 10px 12px calc(var(--nav-height) + 12px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  padding-top: 6px;
+  color: var(--text-primary);
+}
+
+/* Группа */
+.group {}
+
+.groupTitle {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  padding: 0 2px;
+}
+
+.groupBody {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Строка */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.row:last-child { border-bottom: none; }
+
+.rowVertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.rowVertical:last-child { border-bottom: none; }
+
+.rowTopLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.rowLabel {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.rowSub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Toggle */
+.toggle {
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  position: relative;
+  transition: background var(--transition), border-color var(--transition);
+  flex-shrink: 0;
+}
+.toggleOn { background: var(--accent); border-color: var(--accent); }
+
+.toggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: transform var(--transition), background var(--transition);
+}
+.toggleOn .toggleThumb {
+  transform: translateX(16px);
+  background: white;
+}
+
+/* Сегментированный выбор */
+.segmented {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+.segBtn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.segBtnActive {
+  background: var(--bg-card);
+  color: var(--accent);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Слайдер */
+.slider {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.sliderVal {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* Темы */
+.themes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 10px;
+}
+
+.themeCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: border-color var(--transition), background var(--transition);
+}
+.themeCard:hover { border-color: var(--border-active); }
+.themeCardActive { border-color: var(--accent); background: var(--accent-soft); }
+
+.themeColor {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.themeLabel {
+  font-size: 9px;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.themeCheck {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Font grid */
+.fontGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+
+.fontBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fontBtn:hover {
+  border-color: var(--border-active);
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.fontBtnActive {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Font custom input row */
+.fontCustomRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.fontCustomInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-active);
+  font-size: 12px;
+  color: var(--text-primary);
+  padding: 3px 0;
+  outline: none;
+  transition: border-color var(--transition);
+  font-family: inherit;
+}
+
+.fontCustomInput::placeholder {
+  color: var(--text-muted);
+}
+
+.fontCustomInput:focus {
+  border-bottom-color: var(--accent);
+}
+
+.fontImportBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 11px;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.fontImportBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Font preview */
+.fontPreview {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  font-style: italic;
+  background: var(--bg-primary);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  transition: font-family var(--transition);
+}
+
+/* О приложении */
+.aboutRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.aboutRow:last-child { border-bottom: none; }
+
+.aboutLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.aboutVal {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Кнопки хранилища */
+.storageActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.storageActions:last-child { border-bottom: none; }
+
+.storageBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--bg-elevated);
+  transition: all var(--transition);
+  justify-content: center;
+}
+.storageBtn:hover {
+  border-color: var(--border-active);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Accent color + time input */
+.accentRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.colorPicker {
+  width: 36px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  padding: 2px;
+}
+.accentReset {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.accentReset:hover { color: var(--text-secondary); border-color: var(--border-active); }
+
+.timeInput {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 13px;
+  padding: 4px 8px;
+  outline: none;
+  cursor: pointer;
+}
+.timeInput:focus { border-color: var(--accent); }
+
+/* PIN buttons */
+.pinBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.pinBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.pinBtnDanger:hover {
+  border-color: var(--error);
+  color: var(--error);
+  background: rgba(239,68,68,0.06);
+}
+
+/* Reset row */
+.resetRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+}
+
+.resetBtn {
+  align-self: flex-start;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.06);
+  color: var(--error);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.resetBtn:hover {
+  background: rgba(239, 68, 68, 0.14);
+  border-color: var(--error);
+}
+
+.resetSub {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}

@@ -1,0 +1,326 @@
+/* ── Сайдбар ── */
+.sidebar {
+  height: 100%;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  flex-shrink: 0;
+  z-index: 50;
+  position: relative;
+  transition: width 0.05s;
+}
+
+.sidebarLeft  { border-right: 1px solid var(--border); }
+.sidebarRight { border-left: 1px solid var(--border); }
+
+/* Ручка ресайза */
+.resizeHandle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  z-index: 10;
+  background: transparent;
+  transition: background var(--transition);
+}
+.resizeHandle:hover { background: var(--accent-soft); }
+
+.resizeRight { right: -3px; }
+.resizeLeft  { left: -3px; }
+
+.navSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  padding: 0 6px;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  transition: color var(--transition), background var(--transition);
+  flex-shrink: 0;
+}
+.navItem:hover { color: var(--text-secondary); background: var(--bg-hover); }
+.navItemActive { color: var(--accent); }
+
+.navItemWide {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.navLabel {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navItemNew {
+  color: var(--accent);
+  background: var(--accent-soft);
+  margin-top: 4px;
+}
+.navItemNew:hover { background: var(--accent-soft); opacity: 0.85; }
+
+.activeBar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+}
+
+.divider {
+  width: 28px;
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+/* Виджеты на сайдбаре */
+.widgetSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  width: 100%;
+  padding: 0 6px;
+}
+
+.widgetBtn2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  transition: color var(--transition), background var(--transition);
+}
+.widgetBtn2:hover { color: var(--text-secondary); background: var(--bg-hover); }
+.widgetBtn2Active { color: var(--accent); background: var(--accent-soft); }
+
+.addWidgetBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  margin-top: 4px;
+  transition: all var(--transition);
+}
+.addWidgetBtn:hover { border-color: var(--border-active); color: var(--accent); }
+.addWidgetBtnActive { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ── Панель виджета ── */
+.widgetPanel {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  z-index: 200;
+  overflow: hidden;
+}
+
+.widgetPicker {
+  position: fixed;
+  bottom: 80px;
+  width: 200px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  z-index: 200;
+  overflow: hidden;
+}
+
+.widgetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.widgetTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.widgetClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  color: var(--text-muted);
+  transition: all var(--transition);
+}
+.widgetClose:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+.widgetBody {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Настроение */
+.moodCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.moodVal {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.moodSlider {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.widgetBtn {
+  width: 100%;
+  padding: 7px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  transition: opacity var(--transition);
+}
+.widgetBtn:hover { opacity: 0.8; }
+
+/* Статистика */
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+.statRow:last-child { border-bottom: none; }
+
+.statLabel { font-size: 12px; color: var(--text-secondary); }
+.statVal { font-size: 13px; font-weight: 600; color: var(--accent); }
+
+/* Streak */
+.streakBig {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.streakNum { font-size: 36px; font-weight: 700; color: var(--text-primary); }
+.streakSub { text-align: center; font-size: 12px; color: var(--text-secondary); }
+.streakNote { font-size: 11px; color: var(--text-muted); text-align: center; line-height: 1.5; }
+
+/* Mood write section */
+.moodWriteDivider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+.moodWriteLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.moodNoteInput {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 9px;
+  font-size: 12px;
+  color: var(--text-primary);
+  resize: none;
+  line-height: 1.5;
+  transition: border-color var(--transition);
+  font-family: inherit;
+}
+.moodNoteInput:focus { border-color: var(--accent); outline: none; }
+.moodNoteInput::placeholder { color: var(--text-muted); }
+
+/* Пикер виджетов — карточный grid */
+.pickerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 10px;
+}
+
+.pickerCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 6px 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.pickerCard:hover { background: var(--bg-hover); border-color: var(--border-active); }
+.pickerCardOn {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.pickerCardIcon { display: flex; }
+.pickerCardLabel { font-size: 11px; font-weight: 500; }
+
+.pickerCardDot {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}

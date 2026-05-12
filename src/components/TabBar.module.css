@@ -1,0 +1,251 @@
+/* ── Bar container ── */
+.bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 34px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-shrink: 0;
+  scrollbar-width: none;
+}
+
+.bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Individual tab ── */
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px 0 10px;
+  height: 100%;
+  cursor: pointer;
+  border-right: 1px solid var(--border);
+  max-width: 160px;
+  min-width: 60px;
+  flex-shrink: 0;
+  user-select: none;
+  background: transparent;
+  transition: background var(--transition);
+  position: relative;
+}
+
+.tab:hover {
+  background: var(--bg-hover);
+}
+
+.tabActive {
+  background: var(--bg-primary);
+  border-bottom: 2px solid var(--accent);
+}
+
+.tabActive:hover {
+  background: var(--bg-primary);
+}
+
+/* ── Tab title ── */
+.tabTitle {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+  line-height: 1;
+}
+
+.tabActive .tabTitle {
+  color: var(--text-primary);
+}
+
+/* ── Dirty dot ── */
+.dirtyDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── Close button ── */
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--transition), background var(--transition), color var(--transition);
+  padding: 0;
+}
+
+.tab:hover .closeBtn,
+.tabActive .closeBtn {
+  opacity: 1;
+}
+
+.closeBtn:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+/* ── Add new tab button ── */
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 100%;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border);
+  border-radius: 0;
+  transition: color var(--transition), background var(--transition);
+  padding: 0;
+  margin-left: auto;
+}
+
+.addBtn:hover {
+  color: var(--accent);
+  background: var(--bg-hover);
+}
+
+/* ── Drop target highlight ── */
+.dropTarget {
+  background: var(--accent-soft) !important;
+  border-color: var(--border-active) !important;
+}
+
+/* ── Group container ── */
+.group {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* ── Group header ── */
+.groupHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  height: 14px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+}
+
+.groupDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.groupName {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
+}
+
+/* ── Group tab row ── */
+.groupTabs {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  height: 20px;
+}
+
+/* Tabs inside a group are shorter (no group header space) */
+.group .tab {
+  height: 100%;
+  border-right: none;
+  border-bottom: none;
+  padding: 0 6px 0 8px;
+}
+
+.group .tab + .tab {
+  border-left: 1px solid var(--border);
+}
+
+/* ── Context menu ── */
+.contextMenu {
+  position: fixed;
+  z-index: 9999;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  min-width: 160px;
+  padding: 4px 0;
+  animation: menuFadeIn 0.1s ease;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; transform: translateY(-4px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Menu item ── */
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: 7px 12px;
+  font-size: 12px;
+  color: var(--text-primary);
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+  font-family: inherit;
+}
+
+.menuItem:hover {
+  background: var(--bg-hover);
+}
+
+.menuItemDanger {
+  color: var(--error);
+}
+
+.menuItemDanger:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* ── Rename row inside context menu ── */
+.menuRenameRow {
+  padding: 6px 8px;
+}
+
+.menuInput {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 5px 8px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color var(--transition);
+}
+
+.menuInput:focus {
+  border-color: var(--accent);
+}

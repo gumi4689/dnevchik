@@ -1,0 +1,336 @@
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.statusText {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Приветствие */
+.greetSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.greetRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.greeting {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.greetDate {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  text-transform: capitalize;
+}
+
+.moodWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.moodNum {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Статистика */
+.stats {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  padding: 4px 6px;
+  margin: -4px -6px;
+  transition: background var(--transition);
+}
+.stats:hover { background: var(--bg-hover); }
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.statIcon { color: var(--accent); }
+
+.statVal {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.statLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Кнопка новой записи */
+.newBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 12px var(--accent-glow);
+  transition: box-shadow var(--transition), opacity var(--transition);
+  width: 100%;
+  justify-content: center;
+}
+.newBtn:hover { box-shadow: 0 4px 20px var(--accent-glow); }
+
+/* Секция */
+.section {}
+
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  padding: 0 2px;
+}
+
+.entries {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Карточка записи */
+.entry {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 10px;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.entry:last-child { border-bottom: none; }
+
+.entryMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.entryMood { flex-shrink: 0; padding-top: 1px; }
+
+.entryBody { flex: 1; min-width: 0; }
+
+.entryTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entryPreview {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.entryMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.entryTime {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.entryTag {
+  font-size: 10px;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.entryArrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.statItemArrow {
+  color: var(--text-muted);
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Год назад */
+.yearAgoCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+.yearAgoCard:hover { background: var(--bg-hover); }
+
+.yearAgoHeader {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 5px;
+}
+
+.yearAgoText {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Промпт */
+.promptCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.promptText {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.promptActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.promptWrite {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: var(--accent);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+.promptWrite:hover { opacity: 0.85; }
+
+.promptRefresh {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  transition: all var(--transition);
+}
+.promptRefresh:hover {
+  border-color: var(--border-active);
+  color: var(--text-secondary);
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.emptyIcon { color: var(--text-muted); }
+
+.emptyText {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.emptySub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
