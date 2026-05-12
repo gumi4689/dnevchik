@@ -1,3 +1,6 @@
 {
-  "enabledPlugins": {}
+  "enabledPlugins": {},
+  "env": {
+    "PATH": "C:\\Program Files\\Git\\cmd;${PATH}"
+  }
 }
